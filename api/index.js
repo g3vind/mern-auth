@@ -18,7 +18,7 @@ mongoose
 const app = express();
 // for allowing json as input for our backend
 app.use(express.json());
-const PORT = 5000;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`server listening on port ${PORT}!`);
 });
