@@ -1,4 +1,18 @@
 import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+
+// connecting to mongodb databse
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log(`connected to mongodb🚀`);
+  })
+  .catch((err) => {
+    console.log("Error: ", err);
+  });
+
 const app = express();
 const PORT = 5000;
 app.listen(PORT, () => {
