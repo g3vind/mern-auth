@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoutes from "./routes/user.route.js";
+import authRoutes from "./routes/auth.route.js";
 dotenv.config();
 
 // connecting to mongodb databse
@@ -15,10 +16,13 @@ mongoose
   });
 
 const app = express();
+// for allowing json as input for our backend
+app.use(express.json());
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`server listening on port ${PORT}!`);
 });
 
-// -------TEST API ROUTE--------------
+// -------API ROUTES--------------
 app.use("/api/user", userRoutes);
+app.use("/api/auth", authRoutes);
